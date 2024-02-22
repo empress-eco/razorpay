@@ -1,10 +1,20 @@
+
+<div align="center">
+
+<img src="https://grow.empress.eco/uploads/default/original/2X/1/1f1e1044d3864269d2a613577edb9763890422ab.png" alt="Logo" width="80" height="80">
+
 # Razorpay Integration: Your Gateway to Seamless Transactions
-![Project Logo](https://grow.empress.eco/uploads/default/original/2X/1/1f1e1044d3864269d2a613577edb9763890422ab.png
+
+
 Razorpay Integration is a robust tool designed to provide developers, businesses, and users with a secure and seamless online transaction experience. With easy integration into your applications, this project guarantees reliable transaction processing and efficient handling of payments.
 
-* [Explore the Docs](https://empress.eco/)
-* [Report Bug](https://github.com/empress-eco/razorpay/issues)
-* [Request Feature](https://github.com/empress-eco/razorpay/issues)
+[Explore the Docs](https://empress.eco/) | [Report Bug](https://github.com/empress-eco/razorpay/issues) | [Request Feature](https://github.com/empress-eco/razorpay/issues)
+
+</div>
+
+
+
+
 
 ## About The Project
 Razorpay Integration is built on the Framework, leveraging its robust features to provide a reliable and secure payment gateway for applications. The project focuses on simplicity during integration and reliability during operation, making it a top choice for developers and businesses alike.
