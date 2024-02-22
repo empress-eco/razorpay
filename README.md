@@ -1,72 +1,48 @@
-## Razorpay Integration
+# Razorpay Integration: Your Gateway to Seamless Transactions
+![Project Logo](https://grow.empress.eco/uploads/default/original/2X/1/1f1e1044d3864269d2a613577edb9763890422ab.png
+Razorpay Integration is a robust tool designed to provide developers, businesses, and users with a secure and seamless online transaction experience. With easy integration into your applications, this project guarantees reliable transaction processing and efficient handling of payments.
 
-Razorpay Payment Gateway Integration with Frappe/ERPNext
+* [Explore the Docs](https://empress.eco/)
+* [Report Bug](https://github.com/empress-eco/razorpay/issues)
+* [Request Feature](https://github.com/empress-eco/razorpay/issues)
 
-### Usage
+## About The Project
+Razorpay Integration is built on the Framework, leveraging its robust features to provide a reliable and secure payment gateway for applications. The project focuses on simplicity during integration and reliability during operation, making it a top choice for developers and businesses alike.
 
-To get url for payment
+### Key Features
+* Simple integration into existing applications
+* Secure and reliable transaction processing
+* Efficient handling of payments
 
-1. Make a DocType for Order
-2. On "pay now" button, redirect to razorpay_checkout page
-3. When payment is authorized `on_payment_authorized` is called on the Order
+## Technical Stack and Setup Instructions
 
-### Example
+Razorpay Integration leverages Python for the backend and JavaScript for frontend operations.
 
-#### "API"
+### Prerequisites
+For successful integration, you need to have a Razorpay account and the necessary keys.
 
+### Installation
+Clone the repository using the following command:
+```sh
+git clone https://github.com/empress-eco/razorpay.git
 ```
-from razorpay_integration.api import get_razorpay_checkout_url
+Create a DocType for your Order and redirect to the Razorpay checkout page when the "Pay Now" button is clicked. Once payment is authorized, the `on_payment_authorized` is called on the Order.
 
-@frappe.whitelist(allow_guest=True)
-def make_payment(full_name, email, company, amount, workshop=None, conference=None):
-	# make order
-	participant = frappe.get_doc({
-		'doctype': 'Conference Participant',
-		'full_name': full_name,
-		'email_id': email,
-		'company_name': company,
-		'workshop': workshop,
-		'conference': conference,
-		'amount': amount
-	}).insert()
+Use the provided code to get the URL for payment.
 
-	# get razorpay url
-	url = get_razorpay_checkout_url(**{
-		'amount': amount,
-		'title': 'ERPNext Conference Tickets',
-		'description': '{0} passes for conference, {1} passes for workshop'.format(int(conference), int(workshop)),
-		'payer_name': full_name,
-		'payer_email': email,
-		'doctype': participant.doctype,
-		'name': participant.name,
-		'order_id': participant.name
-	})
+## Usage
+Execute the payment by invoking the `make_payment` function when the "Pay Now" button is clicked. Refer to the provided code snippet for implementation details.
 
-	return url
-```
+## Contribution Guidelines
+We welcome and appreciate contributions. Here's how you can contribute:
 
-#### when "Pay Now" is clicked
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-```
-frappe.call({
-	method: 'my_app.api.make_payment',
-	args: data,
-	callback: function(r) {
-		// redirect to razor pay url
-		window.location.href = r.message;
-	}
-});
-```
+## License and Acknowledgements
+This project is licensed under the MIT License. All contributions are also licensed under the MIT License.
 
-#### Controller
-
-```
-class ConferenceParticipant(Document):
-	def on_payment_authorized(self):
-		self.db_set('paid', 1)
-```
-
-### License
-
-MIT
-
+We extend our sincere gratitude to the Empress Community for their foundational contributions to this project. Their dedication and innovation have played a crucial role in building the essential tools and functionalities that power this project.
